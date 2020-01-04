@@ -1,0 +1,12 @@
+{
+    "status": "dnd",
+    "activities": [
+        "over $guilds guilds",
+        "for $prefixhelp",
+        "over $users users",
+        "to the Jedi Order!"
+    ],
+    "activityType": "Watching",
+    "prefix": "ad+",
+    "color": "#f35a44"
+}
