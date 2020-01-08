@@ -7,7 +7,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let nvs = process.version
     let embed = new Discord.RichEmbed()
         .setTitle("Botinfo")
-        .addField("Name", "Ashoka", true)
+        .addField("Name", "Ahsoka", true)
         .addField("Developer", "Katze#1784", true)
         .addField("Libary", "Discord.js", true)
         .addField("Shards", shardId + "/" + shards, true)
