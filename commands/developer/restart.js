@@ -7,8 +7,9 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             .setTitle("Ahsoka - Restart")
             .setDescription("Restarting...")
 
-        client.user.setPresence({status: "away", game: {name: "Restarting..."}});
+            return message.channel.send(embed)
 
+        client.user.setPresence({status: "away", game: {name: "Restarting..."}});
 
         exec("pm2 restart Ahsoka", (err, out, stderr) => {
             if (err && stderr !== "") {
@@ -23,7 +24,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
                     .setTitle("Restart Sucess - Ahsoka")
                     .setDescription(`Restart was successful!`)
-
+                client.user.setPresence({status: "dnd"});
                 embed.edit(restarted(message.channel))
             }
         })
