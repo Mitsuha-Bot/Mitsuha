@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 require("dotenv").config();
 const cmdDir = fs.readdirSync("./commands/");
-const active = new Map();
+
 const client = new Discord.Client({
   disableEveryone: true
 });
@@ -14,6 +14,8 @@ client.groups = [];
 const DBL = require("dblapi.js");
 client.dbl = new DBL(process.env.TOPGG_API, client);
 
+const db = require("./utils/database.js")
+client.con = db
 
 client.commands = new Discord.Collection();
 for (let dir of cmdDir) {
@@ -53,7 +55,7 @@ fs.readdir("./events", (err, files) => {
     if (!file.endsWith(".js")) {
       return;
     }
-    console.log("[INFO] Loading event " + file.split(".")[0] + ".");
+    console.log("[Ahsoka] Loading event " + file.split(".")[0] + ".");
     const event = require(`./events/${file}`);
     let eventName = file.split(".")[0];
     client.on(eventName, event.bind(null, client));
