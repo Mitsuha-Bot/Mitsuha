@@ -13,9 +13,9 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         .addField("Shards", shardId + "/" + shards, true)
         .addField("NodeVersion", nvs, true)
         .addField("DiscordJs Version", Discord.version, true)
-        .addField("Website", "https://Ahsokabot.xyz", true)
-        .addField("Invite", "https://bit.ly/2tr30Oi",true)
-        .addField("Support Server", "8Fjkvr4", true)
+        .addField("Website", "[Link](https://Ahsoka.eu)", true)
+        .addField("Invite", "[Link](https://bit.ly/2tr30Oi)",true)
+        .addField("Support Server", "[Invite](https://discord.gg/8Fjkvr4)", true)
 
         return message.channel.send(embed);
 }

@@ -8,6 +8,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         .addField("Members", message.guild.memberCount, true)
         .addField("ID", message.guild.id, true)
         .addField("Owner", message.guild.owner.user.tag, true)
+        .addField("Verification Level", message.guild.verificationLevel)
         .addField("Region", message.guild.region, true)
         .addField("Creation Date", message.guild.createdAt)
 
