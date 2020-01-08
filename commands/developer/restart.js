@@ -2,8 +2,7 @@ const { exec } = require("child_process");
 const Discord = require("discord.js");
 
 module.exports.run = async (prefix, cmd, client, args, message, config) => {
-
-    if (message.author.id == config.owner) {
+    if (message.author.id == 292588280304893952) {
         let embed = new Discord.RichEmbed()
             .setTitle("Ahsoka - Restart")
             .setDescription("Restarting...")
