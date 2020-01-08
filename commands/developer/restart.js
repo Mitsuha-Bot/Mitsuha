@@ -7,7 +7,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             .setTitle("Ahsoka - Restart")
             .setDescription("Restarting...")
 
-            return message.channel.send(embed)
+            message.channel.send(embed)
 
         client.user.setPresence({status: "away", game: {name: "Restarting..."}});
 
