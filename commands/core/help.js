@@ -8,6 +8,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     .addField("🖼️Images", "a+cat, a+dog, a+fox, a+ahsoka")
     .addField("🔨Utilities", "a+guildinfo, a+userinfo")
     .addField("⚖Moderation", "a+ban, a+kick")
+    .addField("💵Economy", "a+credits, a+daily")
     //.addField("🎉Fun", " ")
 
 return message.channel.send(embed);

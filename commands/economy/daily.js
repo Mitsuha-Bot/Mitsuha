@@ -8,7 +8,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let embed = new Discord.RichEmbed()
     .setTitle("Daily - Ahsoka")
     .setDescription("You have claimed your daily 500 Credits")
-
+    
     let errorembed = new Discord.RichEmbed()
     .setTitle("Daily - Ahsoka")
     .setDescription("You have already claimed your daily reward!")
@@ -17,22 +17,27 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         if(!result[0]){
             let date = new Date();
             db.query("INSERT INTO `cooldowns` (id, date) VALUES (?, ?)", [user.id, date])
-
             db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
                 if(result.length == 0){
 
                     db.query("INSERT INTO credits(id, credits) VALUES(?, ?)", [user.id, reward])
                     message.channel.send(embed)
                 } else {
-                    db.query("UPDATE credits SET credits = ? WHERE id = ?", [500, user.id]);
+                    db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
+                    db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + reward, user.id]);
                     message.channel.send(embed)
+                    })
                 }
             })
             
         } else {
             if((new Date() - result[0].date) >= 86400000) {
-                db.query("UPDATE cooldowns SET date = ? WHERE = ?", [new Date(), user.id]);
-                db.query("UPDATE credits SET credits = ? WHERE = ?", [reward, user.id]);
+                db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
+                db.query("UPDATE cooldowns SET date = ? WHERE id = ?", [new Date(), user.id]);
+                db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + reward, user.id]);
+                message.channel.send(embed)
+                })
+
             } else {
                 message.channel.send(errorembed)
             }

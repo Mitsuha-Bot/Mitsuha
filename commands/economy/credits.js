@@ -13,7 +13,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
         let embed = new Discord.RichEmbed()
         .setTitle("Credits - Ahsoka")
-        .setDescription(user.username + "currently has " + result[0].credits + " Credits")
+        .setDescription(user.username + " currently has " + result[0].credits + " Credits")
 
         if (result.length == 1) {
             return message.channel.send(embed)
@@ -22,7 +22,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
             let embed1 = new Discord.RichEmbed()
         .setTitle("Credits - Ahsoka")
-        .setDescription(user.username + "currently has 0 Credits")
+        .setDescription(user.username + " currently has 0 Credits")
 
             message.channel.send(embed1)
         }
