@@ -9,6 +9,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     embed.setThumbnail(user.avatarURL);
     embed.addField("Username ", user.username);
     embed.addField("Tag ", user.tag);
+    embed.addField("Status", user.presence.game.state)
     embed.addField("ID", user.id);
     embed.addField("Created at", user.createdAt);
 
