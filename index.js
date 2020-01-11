@@ -3,8 +3,6 @@ const Discord = require("discord.js");
 const fs = require("fs");
 require("dotenv").config();
 const cmdDir = fs.readdirSync("./commands/");
-const GBL = require('gblapi.js');
-const Glenn = new GBL('634076750980317217', process.env.GLENN_API, false);
 
 
 const client = new Discord.Client({
@@ -16,7 +14,6 @@ client.groups = [];
 
 const DBL = require("dblapi.js");
 client.dbl = new DBL(process.env.TOPGG_API, client);
-Glenn.updateStats(client.guilds.size);
 
 const db = require("./utils/database.js")
 client.con = db
