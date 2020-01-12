@@ -3,7 +3,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     if (message.author.id == 292588280304893952) {
         if (message.guild.me.hasPermission("CREATE_INSTANT_INVITE")) {
             if (message.args.join(" ") !== "") {
-                client.guilds.get(client.guilds.find(server => server.name === args.join(" ")).id).channels.filter(channels => channels.type == "text").first().createInvite().then(invite => {
+                client.guilds.get(client.guilds.find(server => server.name === message.args.join(" ")).id).channels.filter(channels => channels.type == "text").first().createInvite().then(invite => {
                     let embed = new Discord.RichEmbed()
                         .setDescription(invite.url)
                     message.channel.send(embed)
