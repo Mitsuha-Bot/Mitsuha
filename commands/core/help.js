@@ -9,7 +9,9 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     .addField("🔨Utilities", "a+guildinfo, a+userinfo")
     .addField("⚖Moderation", "a+ban, a+kick")
     .addField("💵Economy", "a+credits, a+daily")
-    //.addField("🎉Fun", " ")
+    if(message.author.id == 292588280304893952) {
+    embed.addField("💻Developer", "a+serverlist, a+update, a+eval")
+    }    //.addField("🎉Fun", " ")
 
 return message.channel.send(embed);
 }

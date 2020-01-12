@@ -7,6 +7,14 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     client.con = db
     let user = message.mentions.users.first();
     if(!user) {user = message.author}
+    if(user.bot == true) {
+        let emb = new Discord.RichEmbed()
+        .setTitle("Credits - Ahsoka")
+        .setColor("#ff0000")
+        .setDescription("Sorry I can't register Bots!")
+
+        return message.channel.send(emb)
+    }
   
 
     db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {

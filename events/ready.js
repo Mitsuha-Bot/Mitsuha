@@ -1,7 +1,9 @@
 module.exports = async (client) => {
   const Discord = require("discord.js");
+  const colors = require("colors")
   const config = client.config;
-  console.log(`[INFO] ${client.user.username} has succesfully started!`);
+  console.log();
+    console.log(`Successfully logged in as ${client.user.tag}`.rainbow);
   client.user.setStatus(`${client.config.status}`);
   let activities = config.activities;
   setInterval(function() {
