@@ -10,7 +10,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     if(user.bot == true) {
         let emb = new Discord.RichEmbed()
         .setTitle("Credits - Ahsoka")
-        .setColor("#ff0000")
+        .setColor("#67b54c")
         .setDescription("Sorry I can't register Bots!")
 
         return message.channel.send(emb)
@@ -21,6 +21,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
         let embed = new Discord.RichEmbed()
         .setTitle("Credits - Ahsoka")
+        .setColor("#67b54c")
         .setDescription(user.username + " currently has " + result[0].credits + " Credits")
 
         if (result.length == 1) {
@@ -30,6 +31,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
             let embed1 = new Discord.RichEmbed()
         .setTitle("Credits - Ahsoka")
+        .setColor("#67b54c")
         .setDescription(user.username + " currently has 0 Credits")
 
             message.channel.send(embed1)

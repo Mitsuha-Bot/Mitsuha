@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6579121b-49c8-4560-a680-63532c5e54a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/core/botinfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/core/botinfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/core/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/core/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/developer/invite.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/developer/invite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/economy/credits.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/economy/credits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/economy/daily.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/economy/daily.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/utilities/userinfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utilities/userinfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/events/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +72,8 @@
       <workItem from="1578495346198" duration="2272000" />
       <workItem from="1578497797202" duration="1041000" />
       <workItem from="1578585036540" duration="12000" />
+      <workItem from="1578755341945" duration="100000" />
+      <workItem from="1579342473020" duration="17000" />
     </task>
     <servers />
   </component>

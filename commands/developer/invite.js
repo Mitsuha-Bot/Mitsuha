@@ -12,12 +12,14 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         } else {
             let emb = new Discord.RichEmbed()
                 .setTitle("Invite - Ahsoka")
+                .setColor("#67b54c")
                 .setDescription("Sorry but I do not have permissions to create an invite")
             return message.channel.send(emb)
         }
     } else {
         let emb = new Discord.RichEmbed()
             .setTitle("Invite - Ahsoka")
+            .setColor("#67b54c")
             .setDescription("Sorry but you are not the Bot owner!")
         return message.channel.send(emb)
     }
