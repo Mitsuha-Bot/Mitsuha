@@ -12,6 +12,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         .addField("Developer", "Katze#1784", true)
         .addField("Libary", "Discord.js", true)
         .addField("Guilds", client.guilds.size)
+        .addField("Users", client.users.size)
+        .addField("Your Shard ID", client.shard.id)
         .addField("Shards", shardId + "/" + shards, true)
         .addField("NodeVersion", nvs, true)
         .addField("DiscordJs Version", Discord.version, true)
