@@ -32,7 +32,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             })
             
         } else {
-            if((new Date() - result[0].date) >= 86400000) {
+            if((new Date() - result[0].date) >= 604800000) {
                 db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
                 db.query("UPDATE cooldownsweekly SET date = ? WHERE id = ?", [new Date(), user.id]);
                 db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + reward, user.id]);
