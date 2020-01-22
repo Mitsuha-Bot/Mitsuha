@@ -8,7 +8,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     }
     let embed = new Discord.RichEmbed()
     .setTitle("Serverlist - Ahsoka")
-    .setDescription(client.guilds.sort(compare).map(server => `\`\`${server.name}\`\`\n*${server.members.size}*\n${server.id}`).join("\n").substr(0, 2000), `All Servers: ${client.guilds.size}`)
+    .setDescription(client.guilds.sort(compare).map(server => `\`\`${server.name}\`\`\n`).join("\n").substr(0, 2000), `All Servers: ${client.guilds.size}`)
         return message.channel.send(embed)
   } else {
 
