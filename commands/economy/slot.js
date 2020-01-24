@@ -75,7 +75,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     function addGeldbag() {
         db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
             let geld = 750
-            db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + appel, user.id]);
+            db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + geld, user.id]);
             let gel = new Discord.RichEmbed()
             .setTitle("Slot")
             .setDescription("Yay! You won 750 Credits!")
@@ -86,7 +86,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     function addJackpot() {
         db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
             let jackpot = 1100
-            db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + appel, user.id]);
+            db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + jackpot, user.id]);
             let jack = new Discord.RichEmbed()
             .setTitle("Slot")
             .setDescription("Yay! You won 1100 Credits!")
