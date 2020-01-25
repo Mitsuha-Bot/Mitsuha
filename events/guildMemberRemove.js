@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 module.exports = async (client, member) => {
     let db = client.con;
     db.query("SELECT * FROM `settings` WHERE id = ?", [member.guild.id], async (error, result) => {
+        if(result.length == 0) return
         if(result[0].welcomechannel == "none") {
             return
         } else {
