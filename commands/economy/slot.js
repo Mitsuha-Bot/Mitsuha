@@ -24,7 +24,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         }
     })
     function pslots() {
-        let slots = ["🍎","🍎","🍎","🍎","🍎", "🍎", "🍎", "🍌", "🍌", "🍌", "🍌", "💰", "💰", "💰", "💎"];
+        let slots = ["🍎","🍎","🍎","🍎","🍎", "🍎", "🍎", "🍎", "🍎", "🍎", "🍎", "🍎", "🍎", "🍎",  "🍌", "🍌", "🍌", "🍌", "💰", "💰", "💰", "💎"];
         let result1 = slots[Math.floor((Math.random() * slots.length))];
         let result2 = slots[Math.floor((Math.random() * slots.length))];
         let result3 = slots[Math.floor((Math.random() * slots.length))];
@@ -52,11 +52,11 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     }
     function addApple() {
         db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
-            let appel = 50
+            let appel = 40
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + appel, user.id]);
             let ap = new Discord.RichEmbed()
             .setTitle("Slot")
-            .setDescription("Yay! You won 50 Credits!")
+            .setDescription("Yay! You won 40 Credits!")
             .addField("Result", "🍎🍎🍎")
             message.channel.send(ap)
         })

@@ -10,7 +10,7 @@ module.exports = async (client, member) => {
             let user = member.user.tag
             let server = member.guild.name
             let embed = new Discord.RichEmbed()
-            .setTitle("Welcome")
+            .setTitle("Leave")
             .setThumbnail(member.user.avtarURL)
             if(result[0].leavemessage == "none") {
                 embed.setDescription(`Welcome, ${user} to ${server}!`)
