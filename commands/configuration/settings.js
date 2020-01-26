@@ -20,12 +20,12 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
                 if (result[0].modlog == "none") {
                     embed.addField("Modlog Channel", "Not set")
                 } else {
-                    embed.addField("Modlog Channel", client.channels.get(result[0].modlog).name)
+                    embed.addField("Modlog Channel", client.channels.get(result[0].modlog))
                 }
                 if (result[0].welcomechannel == "none") {
                     embed.addField("Welcome/Leave Channel", "Not set")
                 } else {
-                    embed.addField("Welcome/Leave Channel", client.channels.get(result[0].welcomechannel).name)
+                    embed.addField("Welcome/Leave Channel", client.channels.get(result[0].welcomechannel))
                 }
 
                 if (result[0].welcomemessage == "none") {
