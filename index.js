@@ -47,7 +47,16 @@ for (let dir of cmdDir) {
   })}}; */
   }
 };
+client.on("message", async message =>{
+  if(message.content.startsWith(`<@${client.user.id}>`)) {
+    let embed = new Discord.RichEmbed()
+    .setTitle("Hey im Ahsoka!")
+    .setDescription("My prefix is a+")
 
+    return message.channel.send(embed)
+  }
+
+})
 fs.readdir("./events", (err, files) => {
   if (err) {
     return console.error(err);

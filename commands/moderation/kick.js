@@ -17,7 +17,10 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             .addField('User', `${target.user.username} (${target.id})`)
             .addField('Reason', reason)
             .addField('Moderator', `${message.author.username}`)
-        if (result[0].modlog == "none") {
+            if (result.length == 0) {
+                message.channel.send(embed)
+            }
+            if (result[0].modlog == "none") {
             message.channel.send(embed)
         } else {
             let mlog = message.guild.channels.get(result[0].modlog);

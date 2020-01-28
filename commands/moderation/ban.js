@@ -18,6 +18,9 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             .addField('Reason', reason)
             .addField('Moderator', `${message.author.username}`)
 
+        if (result.length == 0) {
+            message.channel.send(embed)
+        }
         if (result[0].modlog == "none") {
             message.channel.send(embed)
         } else {

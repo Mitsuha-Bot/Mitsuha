@@ -13,7 +13,7 @@ module.exports = async (client, member) => {
             .setTitle("Leave")
             .setThumbnail(member.user.avtarURL)
             if(result[0].leavemessage == "none") {
-                embed.setDescription(`Welcome, ${user} to ${server}!`)
+                embed.setDescription(`${user} just left ${server}!`)
             } else {
                 embed.setDescription((await result[0].leavemessage).replace("${user}", user).replace("${server}", server))
             }
