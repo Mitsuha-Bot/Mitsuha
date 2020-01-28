@@ -20,13 +20,15 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
         if (result.length == 0) {
             message.channel.send(embed)
+            return target.ban(reason);
         }
         if (result[0].modlog == "none") {
             message.channel.send(embed)
+            return target.ban(reason);
         } else {
             let mlog = message.guild.channels.get(result[0].modlog);
             mlog.send(embed)
+            return target.ban(reason);
         }
     })
-    target.ban(reason);
 };

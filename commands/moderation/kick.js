@@ -19,13 +19,15 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             .addField('Moderator', `${message.author.username}`)
             if (result.length == 0) {
                 message.channel.send(embed)
+                return target.kick(reason);
             }
             if (result[0].modlog == "none") {
-            message.channel.send(embed)
+             message.channel.send(embed)
+            return target.kick(reason);
         } else {
             let mlog = message.guild.channels.get(result[0].modlog);
             mlog.send(embed)
+            target.kick(reason);
         }
-        target.kick(reason);
     })
 };
