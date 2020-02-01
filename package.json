@@ -21,6 +21,7 @@
     "moment": "^2.24.0",
     "mysql2": "^2.1.0",
     "opusscript": "0.0.7",
+    "yt-search": "^1.1.2",
     "ytdl-core": "^1.0.7"
   }
 }

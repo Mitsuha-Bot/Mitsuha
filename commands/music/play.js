@@ -9,7 +9,10 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
 
     var validate = await ytdl.validateURL(args[0]);
 
-    if (!validate) return message.channel.send("Please give a Youtube URL!\"");
+    if (!validate) {
+        let commandFile = require(`./search.js`)
+        return commandFile.run(prefix, cmd, client, args, message, ops)
+    }
 
     var info = await ytdl.getInfo(args[0]);
 
