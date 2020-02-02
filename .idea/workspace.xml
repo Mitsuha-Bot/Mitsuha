@@ -4,10 +4,11 @@
     <list default="true" id="6579121b-49c8-4560-a680-63532c5e54a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/developer/restart.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/developer/restart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/music/play.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/music/play.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/mysterybox/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/mysterybox/inventory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/ready.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/boxhelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/boxhelper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -92,6 +93,11 @@
       <workItem from="1580415423195" duration="49000" />
       <workItem from="1580465806041" duration="531000" />
       <workItem from="1580470857090" duration="6873000" />
+      <workItem from="1580589627002" duration="4780000" />
+      <workItem from="1580636726130" duration="41000" />
+      <workItem from="1580656985729" duration="6351000" />
+      <workItem from="1580664156055" duration="2125000" />
+      <workItem from="1580672122684" duration="933000" />
     </task>
     <servers />
   </component>
@@ -107,10 +113,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="585" y="135" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1578408980442" />
-    <state x="461" y="183" key="SettingsEditor" timestamp="1580415481087">
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1580636760193">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="183" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1580415481087" />
+    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1580636760193" />
+    <state x="461" y="183" key="SettingsEditor" timestamp="1580590043313">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="183" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1580590043313" />
     <state x="661" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1580415504744">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
