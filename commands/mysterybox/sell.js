@@ -14,7 +14,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         return message.channel.send("You don't own this item!")
     }
     let back;
-    if(item.rarity == "Mystical"){
+    if(item.type == "Mystical"){
         back = Math.round(item.price - 0.1 * item.price);
     } else {
         back = Math.round(item.price - 0.2 * item.price);

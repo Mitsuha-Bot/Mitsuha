@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/developer/restart.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/developer/restart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/mysterybox/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/mysterybox/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/events/ready.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/boxhelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/boxhelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/mysterybox/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/commands/mysterybox/sell.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +94,7 @@
       <workItem from="1580636726130" duration="41000" />
       <workItem from="1580656985729" duration="6351000" />
       <workItem from="1580664156055" duration="2125000" />
-      <workItem from="1580672122684" duration="933000" />
+      <workItem from="1580672122684" duration="1549000" />
     </task>
     <servers />
   </component>

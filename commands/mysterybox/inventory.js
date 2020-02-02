@@ -19,7 +19,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let limit = site * 20 > result.length ? result.length - 1 : site * 20;
             for (let i = 1 + ((site - 1) * 20); i <= limit; i++) {
                 let item = await bh.getItem(result[i].cardid);
-                text += item.name + " - `" + item.id + "`\n";
+                text += item.name + " (" + (item.type).charAt(0) + ")" + " - `" + item.id + "`\n";
             }
         }
         let emb = new Discord.RichEmbed()
