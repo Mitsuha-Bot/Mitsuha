@@ -11,7 +11,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     .addField("⚖Moderation", "`a+ban`, `a+kick`")
     .addField("💵Economy", "`a+credits`, `a+daily`, `a+weekly`, `a+slot`")
     .addField("📦MysteryBoxen", "`a+buybox`, `a+inventory`, `a+sell`, `a+showitem`")
-    .addField("🎵Musik", "")
+    .addField("🎵Musik", "`a+play`, `a+leave`, `a+pause`, `a+resume`, `a+queue`, `a+skip` ")
     .addField("🛠Configuration", "`a+settings`, `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
     if(message.author.id == 292588280304893952) {
     embed.addField("💻Developer", "`a+serverlist`, `a+update`, `a+eval`")
