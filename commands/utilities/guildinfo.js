@@ -9,7 +9,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     }
 
     let embed = new Discord.RichEmbed()
-        .setTitle("Ahsoka - Guild Information")
+        .setTitle("Ladybug - Guild Information")
+        .setColor("#dd2b4e")
         .addField("Name", message.guild.name, true)
         .addField("Members", message.guild.memberCount, true)
         .addField("ID", message.guild.id, true)

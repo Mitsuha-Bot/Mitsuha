@@ -11,9 +11,10 @@ const client = new Discord.Client({
 client.config = config;
 client.commands = new Discord.Collection();
 client.groups = [];
-
-const DBL = require("dblapi.js");
-client.dbl = new DBL(process.env.TOPGG_API, client);
+if(client.config.dtbool){
+  const DBL = require("dblapi.js");
+  client.dbl = new DBL(process.env.TOPGG_API, client);
+}
 
 const db = require("./utils/database.js")
 client.con = db
@@ -21,7 +22,7 @@ client.con = db
 client.commands = new Discord.Collection();
 for (let dir of cmdDir) {
   client.groups.push(dir);
-  console.log("[Ahsoka] Loading command category " + dir + ".");
+  console.log("[Ladybug] Loading command category " + dir + ".");
   let group = fs.readdirSync(`./commands/${dir}`);
   for (let commandFile of group) {
     console.log("[Ahsoka] Loading command " + dir + "/" + commandFile.split(".")[0] + ".")
@@ -31,7 +32,7 @@ for (let dir of cmdDir) {
     }
     let cmd = require(`./commands/${dir}/${commandFile}`)
 
-    client.commands.set(commandFile.split(".")[0], cmd)
+    client.commands.set(commandFile.split(".")[0], [cmd])
 
     /* if (err) console.error(err);
     let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -65,7 +66,7 @@ fs.readdir("./events", (err, files) => {
     if (!file.endsWith(".js")) {
       return;
     }
-    console.log("[Ahsoka] Loading event " + file.split(".")[0] + ".");
+    console.log("[Ladybug] Loading event " + file.split(".")[0] + ".");
     const event = require(`./events/${file}`);
     let eventName = file.split(".")[0];
     client.on(eventName, event.bind(null, client));

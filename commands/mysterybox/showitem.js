@@ -6,7 +6,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     db.query("SELECT * FROM items WHERE ID = ?", [iid], (error, result) => {
         if(result == 0) {
             let emb = new Discord.RichEmbed()
-            .setTitle("Item - Ahsoka")
+            .setTitle("Item - Ladybug")
             .setDescription("Sorry but this item don't exist!")
 
             return message.channel.send(emb)

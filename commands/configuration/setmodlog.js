@@ -9,14 +9,14 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             if(result.legnth == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, mlog.id, "none", "none", "none"]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ahsoka")
+                .setTitle("Configuration - Ladybug")
                 .setDescription(`Modlog channel have been set to: ${mlog}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE settings SET modlog = ? WHERE id = ?", [mlog.id, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ahsoka")
+                .setTitle("Configuration - Ladybug")
                 .setDescription(`Modlog channel have been set to: ${mlog}`)
                 return message.channel.send(emby)
 

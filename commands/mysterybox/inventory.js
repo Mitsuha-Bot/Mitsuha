@@ -7,6 +7,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         if(result.length == 0) {
             let emb = new Discord.RichEmbed()
                 .setTitle("Inventory - Ahsoka")
+                .setColor("#dd2b4e")
                 .setDescription("You don't have Items!")
                 .setFooter("Requested by " + message.author.tag,  message.author.avatarURL)
                 .setTimestamp();
@@ -24,6 +25,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         }
         let emb = new Discord.RichEmbed()
             .setTitle("Inventory - Ahsoka")
+            .setColor("#dd2b4e")
             .setFooter("Site " + site + "/" + Math.ceil(result.length / 20) + " • Requested by " + message.author.tag, message.author.avatarURL)
             .setTimestamp()
             .setDescription(text);

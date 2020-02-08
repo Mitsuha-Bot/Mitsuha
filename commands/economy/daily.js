@@ -6,13 +6,13 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let db = client.con;
     let user = message.author
     let embed = new Discord.RichEmbed()
-    .setTitle("Daily - Ahsoka")
-    .setColor("#67b54c")
-    .setDescription("You have claimed your daily 500 Credits")
+    .setTitle("Daily - Ladybug")
+    .setColor("#dd2b4e")
+    .setDescription("You have claimed your daily 500 Coins")
     
     let errorembed = new Discord.RichEmbed()
-    .setTitle("Daily - Ahsoka")
-    .setColor("#67b54c")
+    .setTitle("Daily - Ladybug")
+    .setColor("#dd2b4e")
     .setDescription("You have already claimed your daily reward!")
     db.query("SELECT * FROM `cooldowns` WHERE id = ? LIMIT 1", [user.id], async (error, result) => {
         if(!result[0]){

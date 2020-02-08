@@ -9,11 +9,11 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
      * Common    0.59
      */
     db.query("SELECT * FROM credits WHERE id = ?", [message.author.id], async (e, r) => {
-        console.log(r[0].credits);
         if (!r) {
             db.query("INSERT INTO `credits` (id, credits) VALUES (?, ?)", [message.author.id, 0]);
             let emb = new Discord.RichEmbed()
-                .setTitle("MysteryBox - Ahsoka")
+                .setTitle("MysteryBox - Ladybug")
+                .setColor("#dd2b4e")
                 .setDescription("You don't have enough Credits!")
                 .setFooter("Requested by " + message.author.tag, message.author.avatarURL)
                 .setAuthor(message.author.tag, message.author.avatarURL)
@@ -21,7 +21,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             return message.channel.send(emb);
         } else if (r[0].credits < price) {
             let emb = new Discord.RichEmbed()
-                .setTitle("MysteryBox - Ahsoka")
+                .setTitle("MysteryBox - Ladybug")
+                .setColor("#dd2b4e")
                 .setDescription("You don't have enough Credits!")
                 .setFooter("Requested by " + message.author.tag, message.author.avatarURL)
                 .setTimestamp();
@@ -29,7 +30,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         } else {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [r[0]["credits"] - price, message.author.id]);
             let emb = new Discord.RichEmbed()
-                .setTitle("Ahsoka - Box Opening")
+                .setTitle("Ladybug - Box Opening")
+                .setColor("#dd2b4e")
                 .setDescription("Opening box...")
                 .setFooter("Box for " + message.author.tag, message.author.avatarURL)
                 .setTimestamp();

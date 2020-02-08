@@ -16,6 +16,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
                 let erorr = new Discord.RichEmbed()
 
                     .setTitle("Restart Fail - Ahsoka")
+                    .setColor("#dd2b4e")
                     .setDescription(`Restart Failed\\n${out}\\n${stderr}`)
 
                 embed.edit(error(message.channel))

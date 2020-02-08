@@ -6,7 +6,7 @@ module.exports = async (client, message) => {
     return;
   }
   if (message.channel.type === "dm") {
-    message.channel.send(`Hey! My name is **Ahsoka**\n I'm a Discord bot created by Katze#1784. I have much commands. You can visit the Following links for Support or invite me:\n **Official Website** https://ahsoka.eu\n **Official Discord** http://discord.ahsoka.eu\n Official Invite link http://invite.ahsoka.eu`)
+    message.channel.send(`Hey! My name is **Ladybug**\n I'm a Discord bot created by DieKatze#1784. I have much commands.`)
     return;
 
   }
@@ -28,6 +28,6 @@ module.exports = async (client, message) => {
 
   let commandFile = client.commands.get(cmd.slice(prefix.length));
   if (commandFile) {
-    commandFile.run(prefix, cmd, client, args, message, ops);
+    commandFile[0].run(prefix, cmd, client, args, message, ops);
  }
 };

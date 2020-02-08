@@ -8,7 +8,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
     let embed = new Discord.RichEmbed()
 
-    .setTitle("Ahsoka - Cat Image")
+    .setTitle("Ladybug - Cat Image")
+    .setColor("#dd2b4e")
     .setImage(pic)
     .setFooter("Powerd by random.cat")
 

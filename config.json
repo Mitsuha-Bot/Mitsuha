@@ -4,10 +4,11 @@
         "over $guilds guilds",
         "for $prefixhelp",
         "over $users users",
-        "to the Jedi Order!"
+        "to Paris!"
     ],
     "activityType": "Watching",
-    "prefix": "ad+",
+    "prefix": "l+",
     "color": "#f35a44",
-    "owner": "292588280304893952"
+    "owner": "292588280304893952",
+    "dtbool": false
 }

@@ -7,14 +7,16 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let start = 0
             db.query("INSERT INTO credits(id, credits) VALUES(?, ?)", [user.id, start])
             let embed = new Discord.RichEmbed()
-            .setTitle("Slot - Ahsoka")
-            .setDescription("You don't have enough Credits!")
+            .setTitle("Slot - Ladybug")
+            .setColor("#dd2b4e")
+            .setDescription("You don't have enough Coins!")
             message.channel.send(embed)
         } else {
             if(result[0].credits < 10) {
                 let emb = new Discord.RichEmbed()
-            .setTitle("Slot - Ahsoka")
-            .setDescription("You don't have enough Credits!")
+            .setTitle("Slot - Ladybug")
+            .setColor("#dd2b4e")
+            .setDescription("You don't have enough Coins!")
             message.channel.send(emb)
             } else {
                 let entry = 15
@@ -45,6 +47,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         } else {
             let lose = new Discord.RichEmbed()
             .setTitle("Slot")
+            .setColor("#dd2b4e")
             .setDescription("You lose 15 Credits!")
             .addField("Result", result1 + result2 + result3)
             message.channel.send(lose)
@@ -56,6 +59,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + appel, user.id]);
             let ap = new Discord.RichEmbed()
             .setTitle("Slot")
+            .setColor("#dd2b4e")
             .setDescription("Yay! You won 40 Credits!")
             .addField("Result", "🍎🍎🍎")
             message.channel.send(ap)
@@ -67,6 +71,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + bann, user.id]);
             let ban = new Discord.RichEmbed()
             .setTitle("Slot")
+            .setColor("#dd2b4e")
             .setDescription("Yay! You won 100 Credits!")
             .addField("Result", "🍌🍌🍌")
             message.channel.send(ban)
@@ -78,6 +83,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + geld, user.id]);
             let gel = new Discord.RichEmbed()
             .setTitle("Slot")
+            .setColor("#dd2b4e")
             .setDescription("Yay! You won 750 Credits!")
             .addField("Result", "💰💰💰")
             message.channel.send(gel)
@@ -89,6 +95,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [result[0]["credits"] + jackpot, user.id]);
             let jack = new Discord.RichEmbed()
             .setTitle("Slot")
+            .setColor("#dd2b4e")
             .setDescription("Yay! You won 1100 Credits!")
             .addField("Result", "💎💎💎")
             message.channel.send(jack)

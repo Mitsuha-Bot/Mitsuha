@@ -1,21 +1,40 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 
 module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
     let embed = new Discord.RichEmbed()
-    .setTitle("Ahsoka - Help")
-    .setColor("#67b54c")
-    .addField("⚙Core", "`a+help`, `a+botinfo`, `a+uptime`")
-    .addField("🖼️Images", "`a+cat`, `a+dog`, `a+fox`")
-    .addField("🔨Utilities", "`a+guildinfo`, `a+userinfo`")
-    .addField("⚖Moderation", "`a+ban`, `a+kick`")
-    .addField("💵Economy", "`a+credits`, `a+daily`, `a+weekly`, `a+slot`")
-    .addField("📦MysteryBoxen", "`a+buybox`, `a+inventory`, `a+sell`, `a+showitem`")
-    .addField("🎵Musik", "`a+play`, `a+leave`, `a+pause`, `a+resume`, `a+queue`, `a+skip` ")
-    .addField("🛠Configuration", "`a+settings`, `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
+    .setTitle("Ladybug - Help")
+    .setColor("#dd2b4e")
+    .addField("⚙Core", genHelpCategory("core", prefix))
+    .addField("🖼️Images", genHelpCategory("picture", prefix))
+    .addField("🔨Utilities", genHelpCategory("utilities", prefix))
+    .addField("💵Economy", genHelpCategory("economy", prefix))
+    .addField("📦MysteryBoxen", genHelpCategory("mysterybox", prefix))
+    .addField("🎵Musik", genHelpCategory("music", prefix))
+    if(message.member.hasPermission("BAN_MEMBERS") || message.member.hasPermission("KICK_MEMBERS")){
+        embed.addField("⚖Moderation", genHelpCategory("moderation", prefix))
+    }
+    if(message.member.hasPermission("MANAGE_GUILD")){
+        embed.addField("🛠Configuration", genHelpCategory("configuration", prefix))
+    }
     if(message.author.id == 292588280304893952) {
-    embed.addField("💻Developer", "`a+serverlist`, `a+update`, `a+eval`")
+        embed.addField("💻Developer", genHelpCategory("developer", prefix))
     }    //.addField("🎉Fun", " ")
 
 return message.channel.send(embed);
+}
+
+function genHelpCategory(category, prefix) {
+    if(!category) return false;
+    let text = "";
+    let group = fs.readdirSync(`./commands/${category}`);
+  for (let commandFile of group) {
+    if (!commandFile.endsWith(".js")) {
+      return;
+    }
+    text += " `" + prefix + commandFile.split(".")[0] + "`,";
+    }
+    text = text.slice(0, -1);
+    return text;
 }

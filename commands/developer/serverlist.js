@@ -7,13 +7,15 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         return 0;
     }
     let embed = new Discord.RichEmbed()
-    .setTitle("Serverlist - Ahsoka")
+    .setTitle("Serverlist - Ladybug")
+    .setColor("#dd2b4e")
     .setDescription(client.guilds.sort(compare).map(server => `\`\`${server.name}\`\`\n`).join("\n").substr(0, 2000), `All Servers: ${client.guilds.size}`)
         return message.channel.send(embed)
   } else {
 
     let emb = new Discord.RichEmbed()
-    .setTitle("Serverlist - Ahsoka")
+    .setTitle("Serverlist - Ladybug")
+    .setColor("#dd2b4e")
     .setDescription("Sorry but you are not the Bot owner!")
     return message.channel.send(emb)
   }

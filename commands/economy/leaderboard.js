@@ -12,7 +12,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             }
         }
         let embed = new Discord.RichEmbed()
-        .setTitle("Leaderboard - Ahsoka")
+        .setTitle("Leaderboard - Ladybug")
+        .setColor("#dd2b4e")
         .setDescription(text)
 
         return message.channel.send(embed)

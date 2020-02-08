@@ -7,7 +7,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             if (result.length == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
                 let emb = new Discord.RichEmbed()
-                    .setTitle(message.guild.name + " Settings - Ahsoka")
+                    .setTitle(message.guild.name + " Settings - Ladybug")
                     .setDescription("You can change the settings with `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
                     .addField("Modlog Channel", "None")
                     .addField("Welcome/Leave Channel", "None")
@@ -15,7 +15,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
                     .addField("Leave Message", "Default")
             } else {
                 let embed = new Discord.RichEmbed()
-                    .setTitle(message.guild.name + " Settings - Ahsoka")
+                    .setTitle(message.guild.name + " Settings - Ladybug")
                     .setDescription("You can change the settings with `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
                 if (result[0].modlog == "none") {
                     embed.addField("Modlog Channel", "Not set")
@@ -44,7 +44,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     } else {
 
         let emby = new Discord.RichEmbed()
-            .setTitle("Settings - Ahsoka")
+            .setTitle("Settings - Ladybug")
             .setDescription("Sorry but you don't have permissions!")
 
         return message.channel.send(emby)
