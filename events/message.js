@@ -21,7 +21,13 @@ module.exports = async (client, message) => {
   var ops = {
     active: active
   }
+  if(message.content.startsWith(`<@${client.user.id}>`)) {
+    let embed = new Discord.RichEmbed()
+    .setTitle("Hey im Ladybug!")
+    .setDescription("My prefix is l+")
 
+    return message.channel.send(embed)
+  }
   if (!message.content.startsWith(prefix)) {
     return;
   }

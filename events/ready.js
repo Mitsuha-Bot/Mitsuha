@@ -1,7 +1,7 @@
 module.exports = async (client) => {
   const axios = require("axios")
   const Discord = require("discord.js");
-  if(client.config.dbtool){
+  if(client.config.dbtool == false){
     const GBL = require('gblapi.js');
     const Glenn = new GBL('634076750980317217', process.env.GBL_API);
   }
@@ -16,7 +16,7 @@ module.exports = async (client) => {
     let activity = activityRaw.replace("$prefix", config.prefix).replace("$guilds", client.guilds.size).replace("$users", client.users.size)
     client.user.setActivity(activity, {type: config.activityType});
   }, 12000);
-  if(!client.config.dbtool){
+  if(!client.config.dbtool == false){
     setInterval(() => {
       client.dbl.postStats(client.guilds.size, client.shard.id, client.shard.count);
       Glenn.updateStats(client.guilds.size, client.shard.count);

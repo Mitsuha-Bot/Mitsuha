@@ -11,7 +11,7 @@ const client = new Discord.Client({
 client.config = config;
 client.commands = new Discord.Collection();
 client.groups = [];
-if(client.config.dtbool){
+if(client.config.dtbool == false){
   const DBL = require("dblapi.js");
   client.dbl = new DBL(process.env.TOPGG_API, client);
 }
@@ -25,7 +25,7 @@ for (let dir of cmdDir) {
   console.log("[Ladybug] Loading command category " + dir + ".");
   let group = fs.readdirSync(`./commands/${dir}`);
   for (let commandFile of group) {
-    console.log("[Ahsoka] Loading command " + dir + "/" + commandFile.split(".")[0] + ".")
+    console.log("[Ladybug] Loading command " + dir + "/" + commandFile.split(".")[0] + ".")
 //fs.readdir("./commands/${dir}/${commandFile}", (err, files) => {
     if (!commandFile.endsWith(".js")) {
       return console.log("No Command!")
@@ -48,16 +48,6 @@ for (let dir of cmdDir) {
   })}}; */
   }
 };
-client.on("message", async message =>{
-  if(message.content.startsWith(`<@${client.user.id}>`)) {
-    let embed = new Discord.RichEmbed()
-    .setTitle("Hey im Ahsoka!")
-    .setDescription("My prefix is a+")
-
-    return message.channel.send(embed)
-  }
-
-})
 fs.readdir("./events", (err, files) => {
   if (err) {
     return console.error(err);

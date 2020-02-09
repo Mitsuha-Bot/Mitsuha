@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let a = args.slice(" ").join(" ")
     let db = client.con;
-    if(!a) return message.channel.reply("Please user a+leavemessage (message). You can user ${user} for the user name and ${server} for the server name!")
+    if(!a) return message.reply("Please user a+leavemessage (message). You can user ${user} for the user name and ${server} for the server name!")
     if(message.member.hasPermission("MANAGE_GUILD")) {
         db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
             if(result.legnth == 0) {
