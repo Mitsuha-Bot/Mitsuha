@@ -42,7 +42,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
                 let interval = setInterval(async () => {
                     let item = await genItem(await genRarity());
                     bh.addItem(item, message.author.id);
-                    message.channel.send(await embed(item, message.author));
+                    message.channel.send(await embed(item, message.author, client, message.guild));
                     i++;
                     if (i === 4) {
                         return clearInterval(interval);
@@ -94,14 +94,14 @@ async function genItem(rarity) {
     });
 }
 
- async function embed(item, author, client) {
+ async function embed(item, author, client, guild) {
     let embed = new Discord.RichEmbed()
         .setTitle(item.name)
         .setImage(item.bild)
         .setDescription(item.text)
-        .addField(await client.string(message.guild.id, "buybox.rare"), item.type)
-        .addField(await client.string(message.guild.id, "buybox.price"), item.price)
-        .setFooter(await client.string(message.guild.id, "buybox.boxfor") + author.tag, author.avatarURL)
+        .addField(await client.string(guild.id, "buybox.rare"), item.type)
+        .addField(await client.string(guild.id, "buybox.price"), item.price)
+        .setFooter(await client.string(guild.id, "buybox.boxfor") + author.tag, author.avatarURL)
         .setTimestamp()
     if (item.type == "Mystical") {
         embed.setColor("#b09343")
