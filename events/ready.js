@@ -3,6 +3,7 @@ module.exports = async (client) => {
   const Discord = require("discord.js");
   const GBL = require('gblapi.js');
   const Glenn = new GBL('634076750980317217', process.env.GBL_API);
+  Glenn.updateStats(client.guilds.size, client.shard.count);
   const colors = require("colors")
   const config = client.config;
   console.log();
@@ -15,10 +16,10 @@ module.exports = async (client) => {
     client.user.setActivity(activity, {type: config.activityType});
   }, 12000);
     setInterval(() => {
-    //  client.dbl.postStats(client.guilds.size, client.shard.id, client.shard.count);
-     // Glenn.updateStats(client.guilds.size, client.shard.count);
-      //console.log(1)
-     /* axios.post("https://discordbotlist.com/api/bots/634076750980317217/stats",
+      client.dbl.postStats(client.guilds.size, client.shard.id, client.shard.count);
+     Glenn.updateStats(client.guilds.size, client.shard.count);
+      console.log(1)
+     axios.post("https://discordbotlist.com/api/bots/634076750980317217/stats",
           {
               shard_id: client.shard.id,
               guilds: client.guilds.size,
@@ -69,7 +70,7 @@ module.exports = async (client) => {
               Authorization:  process.env.DFD_API,
               "Content-Type": "application/json"
             }
-          }) */
+          })
     }, 600000);
 };
 
