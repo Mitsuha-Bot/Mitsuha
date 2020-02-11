@@ -2,10 +2,10 @@ const ytdl = require('ytdl-core');
 
 module.exports.run = async (prefix, cmd, client, args, message, ops) => {
 
-    if (!message.member.voiceChannel) return message.channel.send("You are not connected to a voice channel!");
+    if (!message.member.voiceChannel) return message.channel.send(await client.string(message.guild.id, "music.nochannel"));
 
 
-    if (!args[0]) return message.channel.send("Please give a Youtube URL!");
+    if (!args[0]) return message.channel.send(await client.string(message.guild.id, "music.args"));
 
     var validate = await ytdl.validateURL(args[0]);
 
@@ -36,7 +36,7 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
         Play(client, ops, data);
     } else {
 
-        message.channel.send(`Added to the queue: ${info.title} | Requested by: ${message.author.tag}`);
+        message.channel.send(await client.string(message.guild.id, "music.added") `${info.title}` + await client.string(message.guild.id, "music.request") + `${message.author.tag}`);
 
     }
 
@@ -46,7 +46,7 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
 
 async function Play(client, ops, data) {
 
-    client.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} - Requested by: ${data.queue[0].requester}`);
+    client.channels.get(data.queue[0].announceChannel).send(await client.string(message.guild.id, "music.now") + `${data.queue[0].songTitle} ` + await client.string(message.guild.id, "music.request") +  `${data.queue[0].requester}`);
 
     var options = { seek: 2, volume: 1, bitrate: 128000 };
 

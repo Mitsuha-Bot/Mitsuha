@@ -9,13 +9,13 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
      * Common    0.59
      */
     db.query("SELECT * FROM credits WHERE id = ?", [message.author.id], async (e, r) => {
-        if (!r) {
+        if (!r[0]) {
             db.query("INSERT INTO `credits` (id, credits) VALUES (?, ?)", [message.author.id, 0]);
             let emb = new Discord.RichEmbed()
                 .setTitle("MysteryBox - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription("You don't have enough Credits!")
-                .setFooter("Requested by " + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "mysterybox.nocoins"))
+                .setFooter(await client.string(message.guild.id, "mysterybox.footer") + message.author.tag, message.author.avatarURL)
                 .setAuthor(message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             return message.channel.send(emb);
@@ -23,17 +23,17 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let emb = new Discord.RichEmbed()
                 .setTitle("MysteryBox - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription("You don't have enough Credits!")
-                .setFooter("Requested by " + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "mysterybox.nocoins"))
+                .setFooter(await client.string(message.guild.id, "mysterybox.footer") + message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             return message.channel.send(emb);
         } else {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [r[0]["credits"] - price, message.author.id]);
             let emb = new Discord.RichEmbed()
-                .setTitle("Ladybug - Box Opening")
+                .setTitle("Ladybug - Mysterybox")
                 .setColor("#dd2b4e")
-                .setDescription("Opening box...")
-                .setFooter("Box for " + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "mysterybox.open"))
+                .setFooter(await client.string(message.guild.id, "mysterybox.boxfor") + message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             let embmsg = await message.channel.send(emb);
             embmsg.delete(7000);
@@ -94,14 +94,14 @@ async function genItem(rarity) {
     });
 }
 
-function embed(item, author) {
+ async function embed(item, author) {
     let embed = new Discord.RichEmbed()
         .setTitle(item.name)
         .setImage(item.bild)
         .setDescription(item.text)
-        .addField("This item is", item.type)
-        .addField("Price (for selling)", item.price)
-        .setFooter("Box by " + author.tag, author.avatarURL)
+        .addField(await client.string(message.guild.id, "mysterybox.rare"), item.type)
+        .addField(await client.string(message.guild.id, "mysterybox.price"), item.price)
+        .setFooter(await client.string(message.guild.id, "mysterybox.boxfor") + author.tag, author.avatarURL)
         .setTimestamp()
     if (item.type == "Mystical") {
         embed.setColor("#b09343")

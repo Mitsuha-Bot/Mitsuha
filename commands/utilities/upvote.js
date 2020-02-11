@@ -3,7 +3,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let embed = new Discord.RichEmbed()
     .setTitle("Upvote - Ladybug")
     .setColor("#dd2b4e")
-    .setDescription(`You can upvote for Ahsoka to Support the Bot!\n[Top.gg](https://top.gg/bot/634076750980317217)\n[Discord Bot List](https://discordbotlist.com/bots/634076750980317217)\n[Glennbotlist](https://glennbotlist.xyz/bot/634076750980317217)`)
+    .setDescription(await client.string(message.guild.id, "upvote"))
 
     return message.channel.send(embed)
 }

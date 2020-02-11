@@ -6,14 +6,14 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let db = client.con;
     let user = message.author
     let embed = new Discord.RichEmbed()
-    .setTitle("Weekly - Ladybug")
+    .setTitle(await client.string(message.guild.id, "weekly.title"))
     .setColor("#dd2b4e")
-    .setDescription("You have claimed your weekly 750 Coins")
+    .setDescription(await client.string(message.guild.id, "weekly.get"))
     
     let errorembed = new Discord.RichEmbed()
-    .setTitle("Weekly - Ladybug")
+    .setTitle(await client.string(message.guild.id, "weekly.title"))
     .setColor("#dd2b4e")
-    .setDescription("You have already claimed your weekly reward!")
+    .setDescription(await client.string(message.guild.id, "weekly.already"))
     db.query("SELECT * FROM `cooldownsweekly` WHERE id = ? LIMIT 1", [user.id], async (error, result) => {
         if(!result[0]){
             let date = new Date();

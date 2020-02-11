@@ -9,15 +9,15 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     }
 
     let embed = new Discord.RichEmbed()
-        .setTitle("Ladybug - Guild Information")
+        .setTitle(await client.string(message.guild.id, "guildinfo.title"))
         .setColor("#dd2b4e")
         .addField("Name", message.guild.name, true)
-        .addField("Members", message.guild.memberCount, true)
+        .addField(await client.string(message.guild.id, "guildinfo.member"), message.guild.memberCount, true)
         .addField("ID", message.guild.id, true)
-        .addField("Owner", message.guild.owner.user.tag, true)
-        .addField("Verification Level", message.guild.verificationLevel, true)
-        .addField("Region", message.guild.region, true)
-        .addField("Creation Date", moment(message.guild.createdAt).format("dddd, Do MMMM YYYY, HH:mm:ss"))
+        .addField(await client.string(message.guild.id, "guildinfo.owner"), message.guild.owner.user.tag, true)
+        .addField(await client.string(message.guild.id, "guildinfo.verify"), message.guild.verificationLevel, true)
+        .addField(await client.string(message.guild.id, "guildinfo.region"), message.guild.region, true)
+        .addField(await client.string(message.guild.id, "guildinfo.date"), moment(message.guild.createdAt).format("dddd, Do MMMM YYYY, HH:mm:ss"))
         if(message.guild.roles.size > 1000) {
         embed.addField("Roles", "There are to many roles for the Embed")
         } else {

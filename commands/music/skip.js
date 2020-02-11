@@ -4,9 +4,9 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
  
     var guildIDData = ops.active.get(message.guild.id);
 
-    if (!guildIDData) return message.channel.send("There is no music playing at the moment.");
+    if (!guildIDData) return message.channel.send(await client.string(message.guild.id, "music.notplaying"));
  
-    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send("Sorry you're not in the same channel as the bot");
+    if (message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send(await client.string(message.guild.id, "music.samechannel"));
  
     var amountUsers = message.member.voiceChannel.members.size;
  
@@ -14,7 +14,7 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
  
     if (!guildIDData.queue[0].voteSkips) guildIDData.queue[0].voteSkips = [];
  
-    if (guildIDData.queue[0].voteSkips.includes(message.member.id)) return message.channel.send(`Sorry, you have already voted. ${guildIDData.queue[0].voteSkips.length}/${amountSkip}`);
+    if (guildIDData.queue[0].voteSkips.includes(message.member.id)) return message.channel.send(await client.string(message.guild.id, "music.voted") +` ${guildIDData.queue[0].voteSkips.length}/${amountSkip}`);
  
     guildIDData.queue[0].voteSkips.push(message.member.id);
 
@@ -22,12 +22,12 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
  
     if (guildIDData.queue[0].voteSkips.length >= amountSkip) {
  
-        message.channel.send("On the way to the next song..");
+        message.channel.send(await client.string(message.guild.id, "music.skipped"));
 
         return guildIDData.dispatcher.emit("end");
  
     }
  
-    message.channel.send(`Attached from skip request.${guildIDData.queue[0].voteSkips.length}/${amountSkip}`);
+    message.channel.send(await client.string(message.guild.id, "music.skipping") +`${guildIDData.queue[0].voteSkips.length}/${amountSkip}`);
  
 }

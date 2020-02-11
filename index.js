@@ -15,7 +15,9 @@ if(client.config.dtbool == false){
   const DBL = require("dblapi.js");
   client.dbl = new DBL(process.env.TOPGG_API, client);
 }
-
+const strings = require("./utils/string.js")
+client.string = strings;
+client.langs = ["en_us"]
 const db = require("./utils/database.js")
 client.con = db
 

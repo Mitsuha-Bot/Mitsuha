@@ -4,14 +4,14 @@ const fs = require("fs");
 module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
     let embed = new Discord.RichEmbed()
-    .setTitle("Ladybug - Help")
+    .setTitle(await client.string(message.guild.id, "help.title"))
     .setColor("#dd2b4e")
     .addField("⚙Core", genHelpCategory("core", prefix))
     .addField("🖼️Images", genHelpCategory("picture", prefix))
     .addField("🔨Utilities", genHelpCategory("utilities", prefix))
     .addField("💵Economy", genHelpCategory("economy", prefix))
-    .addField("📦MysteryBoxen", genHelpCategory("mysterybox", prefix))
-    .addField("🎵Musik", genHelpCategory("music", prefix))
+    .addField("📦Mysterybox", genHelpCategory("mysterybox", prefix))
+    .addField("🎵Music", genHelpCategory("music", prefix))
     if(message.member.hasPermission("BAN_MEMBERS") || message.member.hasPermission("KICK_MEMBERS")){
         embed.addField("⚖Moderation", genHelpCategory("moderation", prefix))
     }

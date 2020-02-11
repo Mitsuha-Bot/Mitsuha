@@ -13,19 +13,19 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         let emb = new Discord.RichEmbed()
             .setTitle("Coins - Ladybug")
             .setColor("#dd2b4e")
-            .setDescription("Sorry I can't register Bots!")
+            .setDescription(await client.string(message.guild.id, "coins.bots"))
 
         return message.channel.send(emb)
     }
 
 
-    db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], (error, result) => {
+    db.query("SELECT * FROM credits WHERE id = ? LIMIT 1;", [user.id], async (error, result) => {
 
         if (result.length == 1) {
             let embed = new Discord.RichEmbed()
                 .setTitle("Coins - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription(user.username + " currently has " + result[0].credits + " Coins")
+                .setDescription(user.username + await client.string(message.guild.id, "coins.total") + result[0].credits + " Coins")
             return message.channel.send(embed)
         } else {
             db.query("INSERT INTO credits(id, credits) VALUES(?, ?)", [user.id, 0])
@@ -33,7 +33,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let embed1 = new Discord.RichEmbed()
                 .setTitle("Coins - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription(user.username + " currently has 0 Coins")
+                .setDescription(user.username + await client.string(message.guild.id, "coins.total") +"0 Coins")
 
             message.channel.send(embed1)
         }

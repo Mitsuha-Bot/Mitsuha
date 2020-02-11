@@ -8,10 +8,10 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
     let embed = new Discord.RichEmbed()
 
-    .setTitle("Ladybug - Cat Image")
+    .setTitle(await client.string(message.guild.id, "cat.title"))
     .setColor("#dd2b4e")
     .setImage(pic)
-    .setFooter("Powerd by random.cat")
+    .setFooter(await client.string(message.guild.id, "cat.footer"))
 
     return message.channel.send(embed)
 }

@@ -2,9 +2,9 @@ const search = require('yt-search');
 
 module.exports.run = async (prefix, cmd, client, args, message, ops) => {
 
-    search(args.join(' '), function (err, res) {
+    search(args.join(' '), async function (err, res) {
 
-        if (err) return message.channel.send("Sorry but something went wrong!");
+        if (err) return message.channel.send(await client.string(message.guild.id, "music.wrong"));
 
         let videos = res.videos.slice(0, 10);
 
@@ -16,7 +16,7 @@ module.exports.run = async (prefix, cmd, client, args, message, ops) => {
 
         }
 
-        response += `Choose a number between 1-${videos.length}.`;
+        response += await client.string(message.guild.id, "music.number") + ` 1-${videos.length}.`;
 
         message.channel.send(response);
 

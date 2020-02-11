@@ -8,35 +8,35 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
                 let emb = new Discord.RichEmbed()
                     .setTitle(message.guild.name + " Settings - Ladybug")
-                    .setDescription("You can change the settings with `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
-                    .addField("Modlog Channel", "None")
-                    .addField("Welcome/Leave Channel", "None")
-                    .addField("Welcome Message", "Default")
-                    .addField("Leave Message", "Default")
+                    .setDescription(await client.string(message.guild.id, "settings.settings"))
+                    .addField(await client.string(message.guild.id, "settings.modlog"), "None")
+                    .addField(await client.string(message.guild.id, "settings.channel"), "None")
+                    .addField(await client.string(message.guild.id, "settings.wmessage"), "Default")
+                    .addField(await client.string(message.guild.id, "settings.lmessage"), "Default")
             } else {
                 let embed = new Discord.RichEmbed()
                     .setTitle(message.guild.name + " Settings - Ladybug")
-                    .setDescription("You can change the settings with `a+setmodlog`, `a+setwelcomechannel`, `a+setwelcomemessage`, `a+setleavemessage`")
+                    .setDescription(await client.string(message.guild.id, "settings.settings"))
                 if (result[0].modlog == "none") {
-                    embed.addField("Modlog Channel", "Not set")
+                    embed.addField(await client.string(message.guild.id, "settings.modlog"), "Not set")
                 } else {
-                    embed.addField("Modlog Channel", client.channels.get(result[0].modlog))
+                    embed.addField(await client.string(message.guild.id, "settings.modlog"), client.channels.get(result[0].modlog))
                 }
                 if (result[0].welcomechannel == "none") {
-                    embed.addField("Welcome/Leave Channel", "Not set")
+                    embed.addField(await client.string(message.guild.id, "settings.channel"), "Not set")
                 } else {
-                    embed.addField("Welcome/Leave Channel", client.channels.get(result[0].welcomechannel))
+                    embed.addField(await client.string(message.guild.id, "settings.channel"), client.channels.get(result[0].welcomechannel))
                 }
 
                 if (result[0].welcomemessage == "none") {
-                    embed.addField("Welcome Message", "Default")
+                    embed.addField(await client.string(message.guild.id, "settings.wmessage"), "Default")
                 } else {
-                    embed.addField("Welcome Message", result[0].welcomemessage)
+                    embed.addField(await client.string(message.guild.id, "settings.wmessage"), result[0].welcomemessage)
                 }
                 if (result[0].leavemessage == "none") {
-                    embed.addField("Leave Message", "Default")
+                    embed.addField(await client.string(message.guild.id, "settings.lmessage"), "Default")
                 } else {
-                    embed.addField("Leave Message", result[0].leavemessage)
+                    embed.addField(await client.string(message.guild.id, "settings.lmessage"), result[0].leavemessage)
                 }
                 return message.channel.send(embed)
             }
@@ -45,7 +45,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
 
         let emby = new Discord.RichEmbed()
             .setTitle("Settings - Ladybug")
-            .setDescription("Sorry but you don't have permissions!")
+            .setDescription(await client.string(message.guild.id, "settings.noperms"))
 
         return message.channel.send(emby)
     }
