@@ -1,6 +1,6 @@
 {
     "help.title": "Ladybug - Help",
-    "boinfo.guilds": "Guilds",
+    "botinfo.guilds": "Guilds",
     "botinfo.users": "Users",
     "botinfo.shardid": "Your Shard ID",
     "botinfo.uptime": "Uptime",
@@ -12,7 +12,7 @@
     "fox.title": "Ladybug - Fox Image",
     "fox.footer": "Powerd by Randomfox.ca",
     "guildinfo.title": "Ladybug - Guild Information",
-    "guildinfo.members": "Members",
+    "guildinfo.member": "Members",
     "guildinfo.owner": "Owner",
     "guildinfo.verify": "Verification Level",
     "guildinfo.region": "Region",
@@ -76,10 +76,10 @@
     "moderation.banreason": "please specify a reason for this ban!",
     "moderation.banuser": "please specify a reason for this ban!",
     "settings.lang": "Language habe been set to:",
-    "settings.welcomeerror": "Please use l+setwelcomemessage (message). You can user ${user} for the user name and ${server} for the server name!",
+    "settings.welcomeerror": "Please use l+setwelcomemessage (message). You can use ${user} for the user name and ${server} for the server name!",
     "settings.welcome": "The welcome message have been set to:",
     "settings.leave": "The Leave message have been set to:",
-    "settings.leaverror": "Please use l+setleavemessage (message). You can user ${user} for the user name and ${server} for the server name!",
+    "settings.leaveerror": "Please use l+setleavemessage (message). You can use ${user} for the user name and ${server} for the server name!",
     "settings.modlogc": "Modlog channel have been set to:",
     "settings.ch": "Please tag a channel!",
     "settings.wchannel": "Welcome Channel channel have been set to:",
@@ -88,5 +88,6 @@
     "settings.channel": "Welcome/Leave Channel",
     "settings.wmessage": "Welcome Message",
     "settings.lmessage": "Leave Message",
-    "settings.noperms": "Sorry but you don't have permissions!"
+    "settings.noperms": "Sorry but you don't have permissions!",
+    "settings.clang": "Please Choose one of this Languages `en_us`"
 }

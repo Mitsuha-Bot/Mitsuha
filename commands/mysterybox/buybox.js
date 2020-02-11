@@ -14,8 +14,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let emb = new Discord.RichEmbed()
                 .setTitle("MysteryBox - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription(await client.string(message.guild.id, "mysterybox.nocoins"))
-                .setFooter(await client.string(message.guild.id, "mysterybox.footer") + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "buybox.nocoins"))
+                .setFooter(await client.string(message.guild.id, "buybox.footer") + message.author.tag, message.author.avatarURL)
                 .setAuthor(message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             return message.channel.send(emb);
@@ -23,8 +23,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let emb = new Discord.RichEmbed()
                 .setTitle("MysteryBox - Ladybug")
                 .setColor("#dd2b4e")
-                .setDescription(await client.string(message.guild.id, "mysterybox.nocoins"))
-                .setFooter(await client.string(message.guild.id, "mysterybox.footer") + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "buybox.nocoins"))
+                .setFooter(await client.string(message.guild.id, "buybox.footer") + message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             return message.channel.send(emb);
         } else {
@@ -32,8 +32,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let emb = new Discord.RichEmbed()
                 .setTitle("Ladybug - Mysterybox")
                 .setColor("#dd2b4e")
-                .setDescription(await client.string(message.guild.id, "mysterybox.open"))
-                .setFooter(await client.string(message.guild.id, "mysterybox.boxfor") + message.author.tag, message.author.avatarURL)
+                .setDescription(await client.string(message.guild.id, "buybox.open"))
+                .setFooter(await client.string(message.guild.id, "buybox.boxfor") + message.author.tag, message.author.avatarURL)
                 .setTimestamp();
             let embmsg = await message.channel.send(emb);
             embmsg.delete(7000);
@@ -94,14 +94,14 @@ async function genItem(rarity) {
     });
 }
 
- async function embed(item, author) {
+ async function embed(item, author, client) {
     let embed = new Discord.RichEmbed()
         .setTitle(item.name)
         .setImage(item.bild)
         .setDescription(item.text)
-        .addField(await client.string(message.guild.id, "mysterybox.rare"), item.type)
-        .addField(await client.string(message.guild.id, "mysterybox.price"), item.price)
-        .setFooter(await client.string(message.guild.id, "mysterybox.boxfor") + author.tag, author.avatarURL)
+        .addField(await client.string(message.guild.id, "buybox.rare"), item.type)
+        .addField(await client.string(message.guild.id, "buybox.price"), item.price)
+        .setFooter(await client.string(message.guild.id, "buybox.boxfor") + author.tag, author.avatarURL)
         .setTimestamp()
     if (item.type == "Mystical") {
         embed.setColor("#b09343")

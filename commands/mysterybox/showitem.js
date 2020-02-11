@@ -15,8 +15,8 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         .setTitle(result[0].name)
         .setImage(result[0].bild)
         .setDescription(result[0].text)
-        .addField(await client.string(message.guild.id, "mysterybox.rare"), result[0].type)
-        .addField(await client.string(message.guild.id, "mysterybox.price"), result[0].price)
+        .addField(await client.string(message.guild.id, "buybox.rare"), result[0].type)
+        .addField(await client.string(message.guild.id, "buybox.price"), result[0].price)
         if(result[0].type == "Mystical") {
             embed.setColor("#b09343")
         }

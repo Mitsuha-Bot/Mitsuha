@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let db = client.con;
     let lang = args[0]
-    if(!lang) return message.reply("text")
+    if(!lang) return message.reply(await client.string(message.guild.id, "settings.clang"))
     if(!client.langs.includes(lang)) return;
 
     if (message.member.hasPermission("MANAGE_GUILD")) {
