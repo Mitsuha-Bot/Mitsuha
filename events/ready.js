@@ -16,7 +16,7 @@ module.exports = async (client) => {
   }, 12000);
     setInterval(() => {
       client.dbl.postStats(client.guilds.size, client.shard.id, client.shard.count);
-     Glenn.updateStats(client.guilds.size, client.shard.count);
+     Glenn.updateStats(client.guilds.size);
       console.log(1)
     /* axios.post("https://discordbotlist.com/api/bots/634076750980317217/stats",
           {
