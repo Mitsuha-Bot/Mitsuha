@@ -3,7 +3,6 @@ module.exports = async (client) => {
   const Discord = require("discord.js");
   const GBL = require('gblapi.js');
   const Glenn = new GBL('634076750980317217', process.env.GBL_API);
-  Glenn.updateStats(client.guilds.size, client.shard.count);
   const colors = require("colors")
   const config = client.config;
   console.log();
