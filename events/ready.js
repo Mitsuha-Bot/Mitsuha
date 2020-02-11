@@ -1,8 +1,6 @@
 module.exports = async (client) => {
   const axios = require("axios")
   const Discord = require("discord.js");
-  const GBL = require('gblapi.js');
-  const Glenn = new GBL('634076750980317217', process.env.GBL_API);
   const colors = require("colors")
   const config = client.config;
   console.log();
@@ -16,8 +14,15 @@ module.exports = async (client) => {
   }, 12000);
     setInterval(() => {
       client.dbl.postStats(client.guilds.size, client.shard.id, client.shard.count);
-     Glenn.updateStats(client.guilds.size);
       console.log(1)
+      axios.post("https://glennbotlist.xyz/api/v2/bot/634076750980317217/stats",
+          {
+            shardCount: client.shard.count,
+            serverCount: client.guilds.size,
+          },
+          {
+            headers: { Authorization:  process.env.GBL_API}
+          });
     /* axios.post("https://discordbotlist.com/api/bots/634076750980317217/stats",
           {
               shard_id: client.shard.id,
