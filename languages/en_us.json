@@ -90,5 +90,5 @@
     "settings.lmessage": "Leave Message",
     "settings.language": "Language",
     "settings.noperms": "Sorry but you don't have permissions!",
-    "settings.clang": "Please Choose one of this Languages `en_us`"
+    "settings.clang": "Please Choose one of this Languages `en_us`, `de_de`"
 }
