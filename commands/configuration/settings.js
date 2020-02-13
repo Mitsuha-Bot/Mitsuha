@@ -165,10 +165,10 @@ async function lang() {
                 return message.channel.send(embed)
 
             } else {
-                db.query("UPDATE lang SET lang = ? WHERE id = ?", [lang, message.guild.id]);
+                db.query("UPDATE lang SET lang = ? WHERE guildid = ?", [lang, message.guild.id]);
                 let emby = new Discord.RichEmbed()
                 .setTitle("Configuration - Ladybug")
-                .setDescription(await client.string(message.guild.id, "settings.lang") + ` ${lang}`)
+                .setDescription(await client.string(message.guild.id, "settings.lang")  + ` ${lang}`)
                 return message.channel.send(emby)
 
             }

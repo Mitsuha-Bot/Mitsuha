@@ -75,7 +75,7 @@
     "modeation.kickuser": "please specify a member to kick!",
     "moderation.banreason": "please specify a reason for this ban!",
     "moderation.banuser": "please specify a reason for this ban!",
-    "settings.lang": "Language habe been set to:",
+    "settings.lang": "Language have been set to:",
     "settings.welcomeerror": "Please use l+settings welcomemessage (message). You can use ${user} for the user name and ${server} for the server name!",
     "settings.welcome": "The welcome message have been set to:",
     "settings.leave": "The Leave message have been set to:",
