@@ -7,15 +7,16 @@ async function settings() {
             if (result.length == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
                 let emb = new Discord.RichEmbed()
-                    .setTitle(message.guild.name + " Settings - Ladybug")
+                    .setTitle(message.guild.name + " Settings - Mitsuha")
                     .setDescription(await client.string(message.guild.id, "settings.settings"))
                     .addField(await client.string(message.guild.id, "settings.modlog"), "None")
                     .addField(await client.string(message.guild.id, "settings.channel"), "None")
                     .addField(await client.string(message.guild.id, "settings.wmessage"), "Default")
                     .addField(await client.string(message.guild.id, "settings.lmessage"), "Default")
+                    return message.channel.send(emb)
             } else {
                 let embed = new Discord.RichEmbed()
-                    .setTitle(message.guild.name + " Settings - Ladybug")
+                    .setTitle(message.guild.name + " Settings - Mitsuha")
                     .setDescription(await client.string(message.guild.id, "settings.settings"))
                 if (result[0].modlog == "none") {
                     embed.addField(await client.string(message.guild.id, "settings.modlog"), "Not set")
@@ -44,7 +45,7 @@ async function settings() {
     } else {
 
         let emby = new Discord.RichEmbed()
-            .setTitle("Settings - Ladybug")
+            .setTitle("Settings - Mitsuha")
             .setDescription(await client.string(message.guild.id, "settings.noperms"))
 
         return message.channel.send(emby)
@@ -59,14 +60,14 @@ async function mlog() {
             if(result.legnth == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, mlog.id, "none", "none", "none"]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.modlogc")  + ` ${mlog}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE settings SET modlog = ? WHERE id = ?", [mlog.id, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.modlogc") + ` ${mlog}`)
                 return message.channel.send(emby)
 
@@ -76,22 +77,42 @@ async function mlog() {
     }
   }
 async function wchannel() {
-    let wec = message.mentions.channels.first()
+    let wec = message.mentions.channels.first() || args[1]
     if(!wec) return message.reply(await client.string(message.guild.id, "settings.ch"))
 
     if (message.member.hasPermission("MANAGE_GUILD")) {
+        if(wec == "delete") {
+            db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
+                if(result.length == 0) {
+                    db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
+                    let embed = new Discord.RichEmbed()
+                    .setTitle("Configuration - Mitsuha")
+                    .setDescription(await client.string(message.guild.id, "settings.wchannel") + ` ${wec}`)
+                    return message.channel.send(embed)
+    
+                } else {
+                    db.query("UPDATE settings SET welcomechannel = ? WHERE id = ?", ["none", message.guild.id]);
+                    let emby = new Discord.RichEmbed()
+                    .setTitle("Configuration - Mitsuha")
+                    .setDescription(await client.string(message.guild.id, "settings.wchannel") + ` ${wec}`)
+                    return message.channel.send(emby)
+    
+                }
+    
+            })
+        } else {
         db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
             if(result.length == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", wec.id, "none", "none"]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.wchannel") + ` ${wec}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE settings SET welcomechannel = ? WHERE id = ?", [wec.id, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.wchannel") + ` ${wec}`)
                 return message.channel.send(emby)
 
@@ -99,54 +120,97 @@ async function wchannel() {
 
         })
     }
+    }
   }
 async function wmessage() {
     let a = args.slice(1).join(' ')
     if(!a) return message.reply(await client.string(message.guild.id, "settings.welcomeerror"))
     if(message.member.hasPermission("MANAGE_GUILD")) {
+        if(a == "delete") {
+            db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
+                if(result.length == 0) {
+                    db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
+                    let embed = new Discord.RichEmbed()
+                    .setTitle("Configuration - Mitsuha")
+                    .setDescription(await client.string(message.guild.id, "settings.welcome") + ` ${a}`)
+                    return message.channel.send(embed)
+    
+                } else {
+                    db.query("UPDATE settings SET welcomemessage = ? WHERE id = ?", ["none", message.guild.id]);
+                    let emby = new Discord.RichEmbed()
+                    .setTitle("Configuration - Mitsuha")
+                    .setDescription(await client.string(message.guild.id, "settings.welcome") + ` ${a}`)
+                    return message.channel.send(emby)
+    
+                }
+    
+            })
+        } else {
         db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
             if(result.length == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", a, "none"]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.welcome") + ` ${a}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE settings SET welcomemessage = ? WHERE id = ?", [a, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.welcome") + ` ${a}`)
                 return message.channel.send(emby)
 
             }
 
         })
+    }
 
     }
 }
 async function lmessage() {
     let a = args.slice(1).join(' ')
     if(!a) return message.reply(await client.string(message.guild.id, "settings.leaveerror"))
+
     if(message.member.hasPermission("MANAGE_GUILD")) {
+        if(a == "delete") {
+            db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
+                if(result.length == 0) {
+                    db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", "none"]);
+                    let embed = new Discord.RichEmbed()
+                    .setTitle("Configuration - Ladybug")
+                    .setDescription(await client.string(message.guild.id, "settings.leave") + ` ${a}`)
+                    return message.channel.send(embed)
+    
+                } else {
+                    db.query("UPDATE settings SET leavemessage = ? WHERE id = ?", ["none", message.guild.id]);
+                    let emby = new Discord.RichEmbed()
+                    .setTitle("Configuration - Mitsuha")
+                    .setDescription(await client.string(message.guild.id, "settings.leave") + ` ${a}`)
+                    return message.channel.send(emby)
+    
+                }
+        })
+    } else {
         db.query("SELECT * FROM `settings` WHERE id = ?", [message.guild.id], async (error, result) => {
             if(result.length == 0) {
                 db.query("INSERT INTO settings(id, modlog, welcomechannel, welcomemessage, leavemessage) VALUES(?, ?, ?, ?, ?)", [message.guild.id, "none", "none", "none", a]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.leave") + ` ${a}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE settings SET leavemessage = ? WHERE id = ?", [a, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.leave") + ` ${a}`)
                 return message.channel.send(emby)
 
             }
 
         })
+    }
 
     }
 }
@@ -160,14 +224,14 @@ async function lang() {
             if(result.length == 0) {
                 db.query("INSERT INTO settings(guildid, lang) VALUES(?, ?)", [message.guild.id, lang]);
                 let embed = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.lang") + ` ${lang}`)
                 return message.channel.send(embed)
 
             } else {
                 db.query("UPDATE lang SET lang = ? WHERE guildid = ?", [lang, message.guild.id]);
                 let emby = new Discord.RichEmbed()
-                .setTitle("Configuration - Ladybug")
+                .setTitle("Configuration - Mitsuha")
                 .setDescription(await client.string(message.guild.id, "settings.lang")  + ` ${lang}`)
                 return message.channel.send(emby)
 

@@ -1,8 +1,8 @@
 {
 
-  "host": "ip",
-  "user": "name",
-  "password": "password",
-  "database": "name"
+  "host": "91.200.102.38",
+  "user": "ahsoka",
+  "password": "MySQL4AhsokaLUL",
+  "database": "ahsoka"
 
 } 

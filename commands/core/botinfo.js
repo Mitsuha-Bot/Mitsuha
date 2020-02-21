@@ -13,9 +13,9 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
     let shards = client.shard.count.toString();
     let nvs = process.version
     let embed = new Discord.RichEmbed()
-        .setTitle("Botinfo - Ladybug")
+        .setTitle("Mitsuha - Botinfo")
         .setColor("#dd2b4e")
-        .addField("Name", "Ladybug", true)
+        .addField("Name", "Mitsuha", true)
         .addField("Developer", "DieKatze#1784", true)
         .addField("Libary", "Discord.js", true)
         .addField(await client.string(message.guild.id, "botinfo.guilds"), client.guilds.size, true)
@@ -28,7 +28,6 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         //.addField("Website", "[Link](htt)", true)
         .addField("Invite", "[Link](https://bit.ly/2tr30Oi)",true)
         .addField("Support Server", "[Invite](https://discord.gg/8Fjkvr4)", true)
-        .addField(await client.string(message.guild.id, "botinfo.docs"), "[Link](https://miraculous-bots.gitbook.io/ladybug-bot/)", true)
 
         return message.channel.send(embed);
 }

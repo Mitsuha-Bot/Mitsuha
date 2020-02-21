@@ -8,7 +8,7 @@ module.exports = async (client, guild) => {
     }
 
     let embed = new Discord.RichEmbed()
-    .setTitle("Ladybug - Joined Guild")
+    .setTitle("Mitsuha - Joined Guild")
     .setThumbnail(icon)
     .addField("Name", guild.name)
     .addField("ID", guild.id)

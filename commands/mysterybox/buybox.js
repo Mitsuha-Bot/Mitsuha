@@ -12,7 +12,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         if (!r[0]) {
             db.query("INSERT INTO `credits` (id, credits) VALUES (?, ?)", [message.author.id, 0]);
             let emb = new Discord.RichEmbed()
-                .setTitle("MysteryBox - Ladybug")
+                .setTitle("Mitsuha - Mysterbox")
                 .setColor("#dd2b4e")
                 .setDescription(await client.string(message.guild.id, "buybox.nocoins"))
                 .setFooter(await client.string(message.guild.id, "buybox.footer") + message.author.tag, message.author.avatarURL)
@@ -21,7 +21,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             return message.channel.send(emb);
         } else if (r[0].credits < price) {
             let emb = new Discord.RichEmbed()
-                .setTitle("MysteryBox - Ladybug")
+                .setTitle("Mitsuha - Mysterybox")
                 .setColor("#dd2b4e")
                 .setDescription(await client.string(message.guild.id, "buybox.nocoins"))
                 .setFooter(await client.string(message.guild.id, "buybox.footer") + message.author.tag, message.author.avatarURL)
@@ -30,7 +30,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         } else {
             db.query("UPDATE credits SET credits = ? WHERE id = ?", [r[0]["credits"] - price, message.author.id]);
             let emb = new Discord.RichEmbed()
-                .setTitle("Ladybug - Mysterybox")
+                .setTitle("Mitsuha - Mysterybox")
                 .setColor("#dd2b4e")
                 .setDescription(await client.string(message.guild.id, "buybox.open"))
                 .setFooter(await client.string(message.guild.id, "buybox.boxfor") + message.author.tag, message.author.avatarURL)

@@ -12,7 +12,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             }
         }
         let embed = new Discord.RichEmbed()
-        .setTitle("Leaderboard - Ladybug")
+        .setTitle("Leaderboard - Mitsuha")
         .setColor("#dd2b4e")
         .setDescription(text)
 

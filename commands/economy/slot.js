@@ -7,14 +7,14 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let start = 0
             db.query("INSERT INTO credits(id, credits) VALUES(?, ?)", [user.id, start])
             let embed = new Discord.RichEmbed()
-            .setTitle("Slot - Ladybug")
+            .setTitle("Slot - Mitsuha")
             .setColor("#dd2b4e")
             .setDescription(await client.string(message.guild.id, "slot.nocoins"))
             message.channel.send(embed)
         } else {
             if(result[0].credits < 10) {
                 let emb = new Discord.RichEmbed()
-            .setTitle("Slot - Ladybug")
+            .setTitle("Slot - Mitsuha")
             .setColor("#dd2b4e")
             .setDescription(await client.string(message.guild.id, "slot.nocoins"))
             message.channel.send(emb)

@@ -14,7 +14,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
   } else {
 
     let emb = new Discord.RichEmbed()
-    .setTitle("Serverlist - Ladybug")
+    .setTitle("Serverlist - Mitsuha")
     .setColor("#dd2b4e")
     .setDescription("Sorry but you are not the Bot owner!")
     return message.channel.send(emb)

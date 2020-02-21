@@ -5,19 +5,19 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
             let command = args.join(" ").slice(" ")
             let evaled = await eval(command);
            let embed = new Discord.RichEmbed()
-           .setTitle("Ladybug - Eval")
+           .setTitle("Mitsuha - Eval")
            .setColor("#dd2b4e")
            .setDescription("```" + evaled + "```")
            message.channel.send(embed)
         } catch (e) {
             let errorembed = new Discord.RichEmbed()
-            .setTitle("Ladybug - Eval")
+            .setTitle("Mitsuha - Eval")
             .setColor("#dd2b4e")
             .setDescription("```js\n" + e + "```")
         }
     } else {
         let emb = new Discord.RichEmbed()
-            .setTitle("Eval - Ladybug")
+            .setTitle("Eval - Mitsuha")
             .setColor("#dd2b4e")
             .setDescription("Sorry but you are not the Bot owner!")
         return message.channel.send(emb)

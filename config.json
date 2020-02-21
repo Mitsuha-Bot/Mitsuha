@@ -1,13 +1,13 @@
 {
-    "status": "dnd",
+    "status": "online",
     "activities": [
         "over $guilds guilds",
         "for $prefixhelp",
         "over $users users",
-        "to Paris!"
+        "to Itomori!"
     ],
     "activityType": "Watching",
-    "prefix": "l+",
+    "prefix": "m+",
     "color": "#f35a44",
     "owner": "292588280304893952",
     "dtbool": false

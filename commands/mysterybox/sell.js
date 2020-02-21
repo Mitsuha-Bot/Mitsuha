@@ -24,7 +24,7 @@ module.exports.run = async (prefix, cmd, client, args, message, config) => {
         db.query("UPDATE credits SET credits = ? WHERE id = ?", [r[0].credits + back, message.author.id]);
         bh.removeItem(item, message.author.id);
         let emb = new Discord.RichEmbed()
-            .setTitle("Sell - Ladybug")
+            .setTitle("Sell - Mitsuha")
             .setColor("#dd2b4e")
             .setFooter(await client.string(message.guild.id, "sell.by") + message.author.tag, message.author.avatarURL)
             .setTimestamp()

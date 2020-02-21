@@ -1,5 +1,6 @@
 const fs = require("fs");
 const active = new Map();
+const Discord = require("discord.js")
 
 module.exports = async (client, message) => {
   if (message.author.bot) {
@@ -21,7 +22,7 @@ module.exports = async (client, message) => {
   var ops = {
     active: active
   }
-  if(message.content.startsWith(`<@${client.user.id}>`)) {
+  if (message.content == `<@${client.user.id}>`) {
     let embed = new Discord.RichEmbed()
     .setTitle("Hey im Ladybug!")
     .setDescription("My prefix is l+")
