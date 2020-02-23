@@ -57,16 +57,16 @@ async function genRarity() {
     return new Promise(async (resolve, reject) => {
         let r = [{
             "name": "Mystical",
-            "chance": 1
+            "chance": 0.05
         }, {
             "name": "Legendary",
-            "chance": 5
+            "chance": 1
         }, {
             "name": "Rare",
-            "chance": 25
+            "chance": 10
         }, {
             "name": "Common",
-            "chance": 69
+            "chance": 88.5
         }];
         let rr = [];
         r.forEach((n) => {
