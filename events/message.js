@@ -78,7 +78,7 @@ module.exports = async (client, message) => {
       } else if(message.member.id == d) {
         embed.setTitle("Developer " + message.author.tag)
       } else if(message.member.id == m) {
-        embed.setTitle("Moderator " +  message.author.tag)
+        embed.setTitle("Moderator " + message.author.tag)
       } else {
         embed.setTitle(message.author.tag)
       }
