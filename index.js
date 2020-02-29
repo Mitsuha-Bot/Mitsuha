@@ -17,7 +17,7 @@ if(client.config.dtbool == false){
 }
 const strings = require("./utils/string.js")
 client.string = strings;
-client.langs = ["en_us", "de_de"]
+client.langs = ["en_us", "de_de", "pt_pt"]
 const db = require("./utils/database.js")
 client.con = db
 
