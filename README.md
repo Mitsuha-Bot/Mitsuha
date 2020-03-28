@@ -1,8 +1,6 @@
-# Ladybug Bot
+# Mitsuha Bot
 
-## Infos About Ladybug
-
-Ladybug is a Fun/Moderation bot based on the Character Ladybug from Miraculous. Ladybug was made by Katze#1784!
+## Infos About Mitsuha
 
 _____________
 
@@ -26,5 +24,4 @@ Website
 
 And many more!
 
-
-Based on a Boilerplate by CRUGG: https://github.com/OfficialCRUGG/discordjs-boilerplate
+# Recode Started!!
