@@ -18,7 +18,7 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "gblapi.js": "^1.3.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mysql2": "^2.1.0",
     "opusscript": "0.0.7",
     "yt-search": "^1.1.2",
